@@ -9,23 +9,42 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  Alert,
+  Button
 } from 'react-native';
 
+import ToastExample from './ToastExample';
+import ServiceExample from './ServiceExample';
+
+
 export default class helloreactnative extends Component {
+
+  _onStartServicePressButton() {
+    ServiceExample.start();
+  }
+
+  _onStopServicePressButton() {
+    ServiceExample.stop();
+  }
+
   render() {
     return (
       <View style={styles.container}>
+
         <Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
+
+        <Button style={styles.buttonMargin}
+            onPress={this._onStartServicePressButton}
+            title="Start android service"
+            color="#841584" />
+
+        <Button style={styles.buttonMargin}
+            onPress={this._onStopServicePressButton}
+            title="Stop android service"
+            color="#841584" />
       </View>
     );
   }
@@ -48,6 +67,9 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+  buttonMargin:{
+    marginBottom:10
+  }
 });
 
 AppRegistry.registerComponent('helloreactnative', () => helloreactnative);

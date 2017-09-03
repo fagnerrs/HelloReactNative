@@ -16,6 +16,7 @@
       android:label="@string/app_name"
       android:icon="@mipmap/ic_launcher"
       android:theme="@style/AppTheme">
+      <service android:name=".TrackMonitor" />
       <activity
         android:name=".MainActivity"
         android:label="@string/app_name"
