@@ -28,6 +28,11 @@
         </intent-filter>
       </activity>
       <activity android:name="com.facebook.react.devsupport.DevSettingsActivity" />
+
+      <service
+     android:name=".TrackMonitorService"
+     android:enabled="true"
+     android:exported="true"></service>
     </application>
 
 </manifest>

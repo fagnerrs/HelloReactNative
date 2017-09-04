@@ -19,11 +19,13 @@ import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.app.Activity;
 
 public class ServiceHandler extends ReactContextBaseJavaModule {
 
   private Intent trackServiceIntent;
   private TrackMonitorService mService = null;
+  private Activity activity = null;
 
   public ServiceHandler(ReactApplicationContext reactContext) {
     super(reactContext);
@@ -44,13 +46,12 @@ public class ServiceHandler extends ReactContextBaseJavaModule {
   @ReactMethod
   public void start() {
     try {
+
       trackServiceIntent = new Intent(getCurrentActivity(), TrackMonitorService.class);
       getCurrentActivity().bindService(trackServiceIntent, mConnection, Context.BIND_AUTO_CREATE);
 
-      Toast.makeText(getReactApplicationContext(), "Service started", 5000).show();
     }catch (Exception e) {
         Toast.makeText(getReactApplicationContext(), e.getMessage(), 5000).show();
-
     }
 
   }
@@ -58,7 +59,10 @@ public class ServiceHandler extends ReactContextBaseJavaModule {
   @ReactMethod
   public void stop() {
     try {
-        Toast.makeText(getReactApplicationContext(), "Service stopped", 5000).show();
+      
+       getCurrentActivity().unbindService(mConnection);
+       Toast.makeText(getReactApplicationContext(), "Service stopped", 5000).show();
+
     }catch (Exception e) {
 
     }

@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   buttonMargin:{
-    marginBottom:10
+    marginBottom:20
   }
 });
 

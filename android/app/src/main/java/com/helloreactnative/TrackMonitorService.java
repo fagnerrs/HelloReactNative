@@ -9,6 +9,7 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.support.annotation.IntDef;
 import android.util.Log;
+import android.widget.Toast;
 
 public class TrackMonitorService extends Service {
 
@@ -20,9 +21,6 @@ public class TrackMonitorService extends Service {
 
     @Override
     public IBinder onBind(Intent intent) {
-
-        Log.i("TRACK", "Started binded");
-
         Intent notificationIntent = new Intent(this, TrackMonitorService.class);
         PendingIntent pendingIntent =
                 PendingIntent.getActivity(this, 0, notificationIntent, 0);
@@ -36,6 +34,8 @@ public class TrackMonitorService extends Service {
                         .build();
 
         startForeground(ONGOING_NOTIFICATION_ID, notification);
+
+        Toast.makeText(this.getApplicationContext(), "On binder", 10000).show();
 
         return mBinder;
     }
