@@ -53,12 +53,11 @@ public class ServiceHandler extends ReactContextBaseJavaModule {
   @ReactMethod
   public void stop() {
     try {
-      
+
        getCurrentActivity().unbindService(mConnection);
        Toast.makeText(getReactApplicationContext(), "Service stopped", 5000).show();
 
     }catch (Exception e) {
-
     }
 
   }
@@ -67,8 +66,7 @@ public class ServiceHandler extends ReactContextBaseJavaModule {
  private ServiceConnection mConnection = new ServiceConnection() {
 
      @Override
-     public void onServiceConnected(ComponentName className,
-                                    IBinder service) {
+     public void onServiceConnected(ComponentName className, IBinder service) {
          // We've bound to LocalService, cast the IBinder and get LocalService instance
          TrackMonitorService.LocalBinder binder = (TrackMonitorService.LocalBinder) service;
          mService = binder.getService();
