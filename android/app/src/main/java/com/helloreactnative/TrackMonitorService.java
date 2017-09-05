@@ -32,6 +32,7 @@ public class TrackMonitorService extends Service {
                         .setContentIntent(pendingIntent)
                         .setTicker("Ticker text")
                         .build();
+                        
 
         startForeground(ONGOING_NOTIFICATION_ID, notification);
 
