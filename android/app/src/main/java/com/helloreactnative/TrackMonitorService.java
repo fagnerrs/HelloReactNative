@@ -37,6 +37,7 @@ public class TrackMonitorService extends Service {
 
         Toast.makeText(this.getApplicationContext(), "On binder", 10000).show();
 
+        //pull
         return mBinder;
     }
 
