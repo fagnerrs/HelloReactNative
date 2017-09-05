@@ -2,9 +2,7 @@ package com.helloreactnative;
 
 import android.widget.Toast;
 
-import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
-import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 
@@ -16,16 +14,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.View;
 import android.app.Activity;
 
 public class ServiceHandler extends ReactContextBaseJavaModule {
 
   private Intent trackServiceIntent;
   private TrackMonitorService mService = null;
-  private Activity activity = null;
 
   public ServiceHandler(ReactApplicationContext reactContext) {
     super(reactContext);

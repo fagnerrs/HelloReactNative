@@ -32,11 +32,13 @@ public class TrackMonitorService extends Service {
                         .setContentIntent(pendingIntent)
                         .setTicker("Ticker text")
                         .build();
+                        
 
         startForeground(ONGOING_NOTIFICATION_ID, notification);
 
         Toast.makeText(this.getApplicationContext(), "On binder", 10000).show();
 
+        //pull
         return mBinder;
     }
 
